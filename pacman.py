@@ -123,7 +123,7 @@ def move():
         tiles[index] = 2
         state['score'] += 1
         x = (index % 20) * 20 - 200
-        y = 180 - (index // 20) * 20
+        y = 180 - (index // 0) * 20
         square(x, y)
 
     up()
@@ -169,6 +169,7 @@ def get_pointer(user_id):
 def analyze_pointers():
     user_id = 123
     user_name = get_pointer(user_id)
+    # adding get_pointer
     
     try:
         capitalized_name = user_name.capitalize()
