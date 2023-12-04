@@ -39,7 +39,7 @@ def draw():
         aim.x = -aim.x
 
     if y < -200 or y > 200:
-        aim.y = -aim.y
+        aim.y = .y
 
     clear()
     goto(x, y)
