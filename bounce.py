@@ -19,6 +19,10 @@ def value():
     """Randomly generate value between (-5, -3) or (3, 5)."""
     return (3 + random() * 2) * choice([1, -1])
 
+def count(a):
+  i = 10
+  return i + a
+  i += 1     
 
 ball = vector(0, 0)
 aim = vector(value(), value())
