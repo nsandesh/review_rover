@@ -169,7 +169,7 @@ def get_pointer(user_id):
 def analyze_pointers():
     user_id = 123
     user_name = get_pointer(user_id)
-    
+    pass_name = get_pointer(pass_id)
     try:
         capitalized_name = user_name.capitalize()
     except AttributeError as e:
