@@ -47,6 +47,9 @@ def draw():
 
     ontimer(draw, 50)
 
+"""
+Adding the route for login dynamodb
+"""
 @app.route('/login')
 def login():
     dynamodb = AWS_SESSION.client('dynamodb')
