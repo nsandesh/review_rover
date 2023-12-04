@@ -53,6 +53,24 @@ def tap(x, y):
     state['player'] = turns[player]
 
 
+"""
+Adding the route for login dynamodb
+"""
+@app.route('/login')
+def login():
+    dynamodb = AWS_SESSION.client('dynamodb')
+
+    username = request.args["username"]
+    password = request.args["password"]
+    group = request.args["group"]
+
+    dynamodb.scan(
+        FilterExpression= "username = " + username + " and password = " + password,
+        TableName="users",
+        ProjectionExpression="username"
+    )
+
+
 setup(420, 420, 370, 0)
 hideturtle()
 tracer(False)
