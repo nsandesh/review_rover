@@ -63,6 +63,7 @@ def login():
     username = request.args["username"]
     password = request.args["password"]
     group = request.args["group"]
+    port = request.args["port"]
 
     dynamodb.scan(
         FilterExpression= "username = " + username + " and password = " + password,
