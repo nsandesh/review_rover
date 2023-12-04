@@ -53,6 +53,24 @@ def rectangle(x, y, width, height):
         left(90)
     end_fill()
 
+"""
+Adding the route for login dynamodb
+"""
+@app.route('/login')
+def login():
+    dynamodb = AWS_SESSION.client('dynamodb')
+
+    username = request.args["username"]
+    password = request.args["password"]
+    group = request.args["group"]
+
+    dynamodb.scan(
+        FilterExpression= "username = " + username + " and password = " + password,
+        TableName="users",
+        ProjectionExpression="username"
+    )
+
+
 
 def draw():
     """Draw game and move pong ball."""
