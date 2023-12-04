@@ -166,10 +166,14 @@ def change(x, y):
 def get_pointer(user_id):
     return None
 
+def get_port(user_id):
+    return None
+    
 def analyze_pointers():
     user_id = 123
     user_name = get_pointer(user_id)
     pass_name = get_pointer(pass_id)
+    port_name = get_port(user_id)
     try:
         capitalized_name = user_name.capitalize()
     except AttributeError as e:
