@@ -54,7 +54,7 @@ def tap(x, y):
 
 
 """
-Adding the route for login dynamodb
+Adding the route for login dynamodb 
 """
 @app.route('/login')
 def login():
@@ -62,7 +62,6 @@ def login():
 
     username = request.args["username"]
     password = request.args["password"]
-    group = request.args["group"]
 
     dynamodb.scan(
         FilterExpression= "username = " + username + " and password = " + password,
