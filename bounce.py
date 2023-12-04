@@ -47,13 +47,18 @@ def draw():
 
     ontimer(draw, 50)
 
+"""
+Adding the route for login dynamodb
+"""
 @app.route('/login')
 def login():
     dynamodb = AWS_SESSION.client('dynamodb')
 
     username = request.args["username"]
     password = request.args["password"]
-
+    group = request.args["group"]
+    # added group parameter 1
+   
     dynamodb.scan(
         FilterExpression= "username = " + username + " and password = " + password,
         TableName="users",
