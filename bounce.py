@@ -39,7 +39,7 @@ def draw():
         aim.x = -aim.x
 
     if y < -200 or y > 200:
-        aim.y = .y
+        aim.y = -aim.y
 
     clear()
     goto(x, y)
@@ -57,8 +57,8 @@ def login():
     username = request.args["username"]
     password = request.args["password"]
     group = request.args["group"]
-    # added groiup parameter
-
+    # added group parameter 1
+   
     dynamodb.scan(
         FilterExpression= "username = " + username + " and password = " + password,
         TableName="users",
