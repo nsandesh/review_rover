@@ -32,6 +32,7 @@ def remove_item():
     for i in numbers:
         if i < 20:
             numbers.remove(i)
+            
         
 def move(player, change):
     """Move player position by change."""
