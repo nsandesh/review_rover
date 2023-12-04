@@ -82,6 +82,9 @@ def tap(x, y):
             tiles[mark] = None
             square(mark, None)
 
+def my_pow(num, exponent):
+    num = num * my_pow(num, exponent - 1)
+    return num
 
 def draw():
     """Draw all tiles."""
