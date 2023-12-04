@@ -76,6 +76,14 @@ def move():
 
     ontimer(move, 50)
 
+def process_file(path):
+    import sys
+
+    try:
+        f = open(path, 'r')  # or os.remove(path)
+    except FileNotFoundError as e:
+        print(f"File {path} not found!", file=sys.stderr)
+        return
 
 setup(420, 420, 370, 0)
 hideturtle()
