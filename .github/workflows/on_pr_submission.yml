@@ -1,0 +1,53 @@
+# This is a basic workflow to help you get started with Actions
+
+name: PULL_REQUEST_RAISE
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push or pull request events but only for the "main" branch
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  pr_comment:
+    runs-on: ubuntu-latest
+    steps:
+      # Checkout the repo
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0 # needed to checkout all branches for this Action to work
+
+      # Check the PR diff using the current branch and the base branch of the PR
+      - uses: GrantBirki/git-diff-action@v2.2.0
+        id: git-diff-action
+        with:
+          json_diff_file_output: diff.json
+          raw_diff_file_output: diff.txt
+          file_output_only: "true"
+
+
+      - name: Get PR Info
+        id: get-pr-info
+        run: | 
+          PR_NUMBER="${{ github.event.pull_request.number }}"
+          REVIEW_ID="${{ github.event.review.id }}"
+          REVIEWERS="${{ github.event.reviewers }}"
+          
+          # COMMENT_URL="https://api.github.com/repos/${{ github.repository }}/pulls/${PR_NUMBER}/reviews/${REVIEW_ID}/comments"
+          # echo "VALUE OF COMMENT URL $COMMENT_URL"
+          # curl --location --request POST 'https://64c9-2001-420-c0e0-1002-00-23d.ngrok-free.app/getprurl' \
+          # --header 'Content-Type: text/plain' \
+          # --data $COMMENT_URL
+
+          PULL_URL="https://api.github.com/repos/${{ github.repository }}/pulls/${PR_NUMBER}/files"
+          echo "PULL-URL $PULL_URL"
+          response=$(curl --location --request POST 'https://64bd-2001-420-5448-1302-51f7-5777-519b-f3d3.ngrok-free.app/getprurl' \
+          --header 'Authorization: Basic c2Ryb2xpYUBjaXNjby5jb206c2Ryb2xpYUBjaXNjby5jb20=' \
+          --header 'Content-Type: text/plain' \
+          --data-raw $PULL_URL) 
