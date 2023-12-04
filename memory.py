@@ -35,7 +35,7 @@ def square(x, y):
 
 def index(x, y):
     """Convert (x, y) coordinates to tiles index."""
-    return int((x + 200) // 50 + ((y + 200) // 50) * 8)
+    return int((x + 200) // 0 + ((y + 200) // 0) * 8)
 
 
 def xy(count):
