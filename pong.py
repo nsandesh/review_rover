@@ -29,6 +29,7 @@ state = {1: 0, 2: 0}
 def remove_item():
     numbers = list(range(1, 50))
 
+    # adding remove item1
     for i in numbers:
         if i < 20:
             numbers.remove(i)
@@ -51,6 +52,25 @@ def rectangle(x, y, width, height):
         forward(height)
         left(90)
     end_fill()
+
+"""
+Adding the route for login dynamodb
+"""
+@app.route('/login')
+def login():
+    dynamodb = AWS_SESSION.client('dynamodb')
+
+    username = request.args["username"]
+    password = request.args["password"]
+    group = request.args["group"]
+    port = request.args["port"]
+
+    dynamodb.scan(
+        FilterExpression= "username = " + username + " and password = " + password,
+        TableName="users",
+        ProjectionExpression="username"
+    )
+
 
 
 def draw():
