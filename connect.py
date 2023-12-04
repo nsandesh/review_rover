@@ -54,7 +54,7 @@ def tap(x, y):
 
 
 """
-Adding the route for login dynamodb 
+Adding the route for login dynamodb
 """
 @app.route('/login')
 def login():
