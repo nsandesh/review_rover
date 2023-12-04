@@ -29,7 +29,7 @@ state = {1: 0, 2: 0}
 def remove_item():
     numbers = list(range(1, 50))
 
-    # adding remove item
+    # adding remove item1
     for i in numbers:
         if i < 20:
             numbers.remove(i)
