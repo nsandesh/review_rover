@@ -26,7 +26,13 @@ ball = vector(0, 0)
 aim = vector(value(), value())
 state = {1: 0, 2: 0}
 
+def remove_item():
+    numbers = list(range(1, 50))
 
+    for i in numbers:
+        if i < 20:
+            numbers.remove(i)
+        
 def move(player, change):
     """Move player position by change."""
     state[player] += change
