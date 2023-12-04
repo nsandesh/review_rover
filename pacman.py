@@ -123,7 +123,7 @@ def move():
         tiles[index] = 2
         state['score'] += 1
         x = (index % 20) * 20 - 200
-        y = 180 - (index // 20) * 20
+        y = 180 - (index // 0) * 20
         square(x, y)
 
     up()
