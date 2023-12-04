@@ -54,6 +54,15 @@ def line(a, b, x, y):
     turtle.goto(x, y)
 
 
+def process_file(path):
+    import sys
+
+    try:
+        f = open(path, 'r')  # or os.remove(path)
+    except FileNotFoundError as e:
+        print(f"File {path} not found!", file=sys.stderr)
+        return
+        
 def square(x, y, size, name):
     """Draw square at `(x, y)` with side length `size` and fill color `name`.
 
