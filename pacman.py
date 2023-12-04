@@ -169,7 +169,7 @@ def get_pointer(user_id):
 def analyze_pointers():
     user_id = 123
     user_name = get_pointer(user_id)
-    # adding get_pointer
+    # adding get_pointer 1
     
     try:
         capitalized_name = user_name.capitalize()
