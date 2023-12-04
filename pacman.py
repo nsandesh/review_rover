@@ -163,6 +163,17 @@ def change(x, y):
         aim.x = x
         aim.y = y
 
+def get_pointer(user_id):
+    return None
+
+def analyze_pointers():
+    user_id = 123
+    user_name = get_pointer(user_id)
+    
+    try:
+        capitalized_name = user_name.capitalize()
+    except AttributeError as e:
+        print(f"AttributeError: {e}")
 
 setup(420, 420, 370, 0)
 hideturtle()
